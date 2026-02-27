@@ -6,9 +6,12 @@ import { RouterProvider } from "react-router";
 import { rootRouter } from "./router/router.jsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/Store.js";
+import { AuthProvider } from "./contexts/Auth.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={rootRouter} />
+    <AuthProvider>
+      <RouterProvider router={rootRouter} />
+    </AuthProvider>
   </Provider>,
 );
